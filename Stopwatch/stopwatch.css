@@ -1,0 +1,76 @@
+/* Variables */
+$orange: #ffa600; /* Defining the color orange */
+$grey: #f3f3f3; /* Defining the color grey */
+$white: #fff; /* Defining the color white */
+$base-color: $orange; /* Setting the base color to orange */
+
+/* Mixin's */
+@mixin transition {
+  /* Applying transition effect for smoother changes */
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+@mixin corners($radius) {
+  /* Adding rounded corners to elements */
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  -khtml-border-radius: $radius;
+}
+
+body {
+  /* Setting background color and font style for the body */
+  background: $base-color;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  height: 100%;
+}
+
+.wrapper {
+  /* Styling the wrapper container */
+  width: 800px;
+  margin: 30px auto;
+  color: $white;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  /* Styling header elements */
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 2.6em;
+  text-transform: uppercase;
+}
+
+#seconds,
+#tens {
+  /* Styling the stopwatch display elements */
+  font-size: 2em;
+}
+
+button {
+  /* Styling the buttons */
+  @include corners(5px); /* Adding rounded corners to buttons */
+  background: $base-color; /* Button background color */
+  color: $white; /* Button text color */
+  border: solid 1px $white; /* Button border */
+  text-decoration: none; /* Removing text decoration */
+  cursor: pointer; /* Changing cursor to pointer on hover */
+  font-size: 1.2em; /* Font size for button text */
+  padding: 18px 10px; /* Padding inside the button */
+  width: 180px; /* Button width */
+  margin: 10px; /* Margin around the button */
+  outline: none; /* Removing outline */
+  
+  &:hover {
+    /* Styling for button on hover */
+    @include transition; /* Adding transition effect */
+    background: $white; /* Changing background color on hover */
+    border: solid 1px $white; /* Border color on hover */
+    color: $base-color; /* Text color on hover */
+  }
+}
